@@ -1,4 +1,4 @@
-#include "../header/spreadSheet.h"
+#include "spreadSheet.h"
 
 int main()
 {
@@ -47,8 +47,8 @@ int main()
     std::cout << "Spreadsheet 2 after slice:" << std::endl;
     std::cout << ob2 << std::endl;
 
-    std::vector<int> v1 = ob[8][7];
-    std::vector<int> v2 = ob2[4][2];
+    std::Vector<int> v1 = ob[8][7];
+    std::Vector<int> v2 = ob2[4][2];
 
     std::cout << std::boolalpha << v1.empty() << std::endl;
     std::cout << std::boolalpha << v2.empty() << std::endl;

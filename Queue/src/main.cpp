@@ -1,4 +1,4 @@
-#include "../headers/queue.h"
+#include "queue.h"
 #include "iostream"
 
 int main() {

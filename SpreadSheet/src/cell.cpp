@@ -1,6 +1,6 @@
-#include "../header/cell.h"
+#include "cell.h"
 
-std::ostream& operator<<(std::ostream& out, const std::vector<int>& ob) {
+std::ostream& operator<<(std::ostream& out, const std::Vector<int>& ob) {
     out << "[";
     for (size_t i = 0; i < ob.size(); ++i) {
         out << ob[i];
@@ -11,32 +11,48 @@ std::ostream& operator<<(std::ostream& out, const std::vector<int>& ob) {
     return out;
 }
 
-Cell::Cell() : val("") {}
+Cell::Cell() : 
+    val("") 
+{}
 
-Cell::Cell(const Cell& rhv) : val(rhv.val) {}
+Cell::Cell(const Cell& rhv) : 
+    val(rhv.val) 
+{}
 
-Cell::Cell(Cell&& rhv) : val(std::move(rhv.val)) {}
+Cell::Cell(Cell&& rhv) : 
+    val(std::move(rhv.val)) 
+{}
 
-Cell::Cell(int val) : val(std::to_string(val)) {}
+Cell::Cell(int val) : 
+    val(std::to_string(val))
+{}
 
-Cell::Cell(double val) : val(std::to_string(val)) {}
+Cell::Cell(double val) : 
+    val(std::to_string(val)) 
+{}
 
-Cell::Cell(char val) : val(1, val) {}
+Cell::Cell(char val) : 
+    val(1, val) 
+{}
 
-Cell::Cell(bool val) : val(val ? "1" : "0") {}
+Cell::Cell(bool val) : 
+    val(val ? "1" : "0") 
+{}
 
-Cell::Cell(std::string val) : val(val) {}
+Cell::Cell(std::string val) : 
+    val(val) 
+{}
 
-Cell::Cell(const std::vector<int>& val) 
+Cell::Cell(const std::Vector<int>& val) 
 {
-    std::string vectorString = "";
+    std::string VectorString = "";
     for (size_t i = 0; i < val.size(); ++i) {
-        vectorString += std::to_string(val[i]);
+        VectorString += std::to_string(val[i]);
         if (i < val.size() - 1) {
-            vectorString += ", ";
+            VectorString += ", ";
 		}
     }
-    this->val = std::to_string(val.size()) + " elements: " + vectorString;
+    this->val = std::to_string(val.size()) + " elements: " + VectorString;
 }
 
 const Cell& Cell::operator=(const Cell& rhv) 
@@ -84,16 +100,16 @@ const Cell& Cell::operator=(std::string rhv)
     return *this;
 }
 
-const Cell& Cell::operator=(const std::vector<int>& rhv) 
+const Cell& Cell::operator=(const std::Vector<int>& rhv) 
 {
-    std::string vectorString = "";
+    std::string VectorString = "";
     for (size_t i = 0; i < rhv.size(); ++i) {
-        vectorString += std::to_string(rhv[i]);
+        VectorString += std::to_string(rhv[i]);
         if (i < rhv.size() - 1) {
-            vectorString += ", ";
+            VectorString += ", ";
 		}
     }
-    this->val = std::to_string(rhv.size()) + vectorString;
+    this->val = std::to_string(rhv.size()) + VectorString;
     return *this;
 }
 
@@ -132,9 +148,9 @@ Cell::operator std::string()
     return this->val;
 }
 
-Cell::operator std::vector<int>() 
+Cell::operator std::Vector<int>() 
 {
-    std::vector<int> result;
+    std::Vector<int> result;
     size_t start = this->val.find("[") + 1;
     size_t end = this->val.find("]");
     if (start != std::string::npos && end != std::string::npos && start < end) {

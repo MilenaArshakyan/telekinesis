@@ -2,10 +2,10 @@
 #define __CELL__H__
 
 #include <iostream>
-#include <vector>
+#include <Vector>
 #include <string>
 
-std::ostream& operator<<(std::ostream& out, const std::vector<int>& ob);
+std::ostream& operator<<(std::ostream& out, const std::Vector<int>& ob);
 
 class Cell
 {
@@ -20,7 +20,7 @@ public:
     Cell(char val);
     Cell(bool val);
     Cell(std::string val);
-    Cell(const std::vector<int>& val);
+    Cell(const std::Vector<int>& val);
 
     const Cell& operator=(const Cell& rhv);  
     const Cell& operator=(Cell&& rhv);  
@@ -29,14 +29,14 @@ public:
     const Cell& operator=(char rhv);  
     const Cell& operator=(bool rhv);  
     const Cell& operator=(std::string rhv);  
-    const Cell& operator=(const std::vector<int>& rhv);
+    const Cell& operator=(const std::Vector<int>& rhv);
 
     operator int();  
     operator double();  
     operator char();  
     operator bool();  
     operator std::string();  
-    operator std::vector<int>();  
+    operator std::Vector<int>();  
 
 
     std::string getVal() const;

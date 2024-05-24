@@ -4,20 +4,30 @@
 #include "../headers/stack.h"
 
 template <typename T, typename Container>
-g3::stack<T, Container>::stack() : ob() {}
+g3::stack<T, Container>::stack() : 
+    ob() 
+{}
 
 template <typename T, typename Container>
-g3::stack<T, Container>::stack(const stack& rhv) : ob(rhv.ob) {}
+g3::stack<T, Container>::stack(const stack& rhv) : 
+    ob(rhv.ob) 
+{}
 
 template <typename T, typename Container>
-g3::stack<T, Container>::stack(stack&& rhv) : ob(std::move(rhv.ob)) {}
+g3::stack<T, Container>::stack(stack&& rhv) : 
+    ob(std::move(rhv.ob)) 
+{}
 
 template <typename T, typename Container>
-g3::stack<T, Container>::stack(std::initializer_list<value_type> init) : ob(init) {}
+g3::stack<T, Container>::stack(std::initializer_list<value_type> init) : 
+    ob(init) 
+{}
 
 template <typename T, typename Container>
 template <typename InputIt>
-g3::stack<T, Container>::stack(InputIt first, InputIt last) : ob(first, last) {}
+g3::stack<T, Container>::stack(InputIt first, InputIt last) : 
+    ob(first, last) 
+{}
 
 template <typename T, typename Container>
 g3::stack<T, Container>::~stack() {}

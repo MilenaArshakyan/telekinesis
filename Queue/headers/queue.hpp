@@ -7,17 +7,25 @@ template<typename T, typename Container>
 g3::queue<T, Container>::queue() {}
 
 template<typename T, typename Container>
-g3::queue<T, Container>::queue(const queue& rhv) : ob(rhv.ob) {}
+g3::queue<T, Container>::queue(const queue& rhv) : 
+    ob(rhv.ob) 
+{}
 
 template<typename T, typename Container>
-g3::queue<T, Container>::queue(queue&& rhv) : ob(std::move(rhv.ob)) {}
+g3::queue<T, Container>::queue(queue&& rhv) : 
+    ob(std::move(rhv.ob)) 
+{}
 
 template<typename T, typename Container>
-g3::queue<T, Container>::queue(std::initializer_list<value_type> init) : ob(init) {}
+g3::queue<T, Container>::queue(std::initializer_list<value_type> init) : 
+    ob(init) 
+{}
 
 template<typename T, typename Container>
 template<typename InputIt>
-g3::queue<T, Container>::queue(InputIt first, InputIt last) : ob(first, last) {}
+g3::queue<T, Container>::queue(InputIt first, InputIt last) : 
+    ob(first, last) 
+{}
 
 template<typename T, typename Container>
 g3::queue<T, Container>::~queue() {}

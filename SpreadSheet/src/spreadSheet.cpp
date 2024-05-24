@@ -1,13 +1,15 @@
-#include "../header/spreadSheet.h"
+#include "spreadSheet.h"
 
-SpreadSheet::SpreadSheet() : board {new Cell*[2]}, rowcnt{2}, colcnt{2}
+SpreadSheet::SpreadSheet() : 
+    board {new Cell*[2]}, rowcnt{2}, colcnt{2}
 {
     for (int i = 0; i < rowcnt; ++i){
         board[i] = new Cell[colcnt];
     }
 }
 
-SpreadSheet::SpreadSheet(const SpreadSheet& rhv) : rowcnt {rhv.rowcnt}, colcnt {rhv.colcnt}
+SpreadSheet::SpreadSheet(const SpreadSheet& rhv) : 
+    rowcnt {rhv.rowcnt}, colcnt {rhv.colcnt}
 {
     board = new Cell* [rowcnt];
 
@@ -21,7 +23,8 @@ SpreadSheet::SpreadSheet(const SpreadSheet& rhv) : rowcnt {rhv.rowcnt}, colcnt {
     }
 }
 
-SpreadSheet::SpreadSheet(SpreadSheet&& rhv) : rowcnt {rhv.rowcnt}, colcnt {rhv.colcnt}
+SpreadSheet::SpreadSheet(SpreadSheet&& rhv) : 
+    rowcnt {rhv.rowcnt}, colcnt {rhv.colcnt}
 {
     board = new Cell* [rowcnt];
 
@@ -44,7 +47,8 @@ SpreadSheet::SpreadSheet(SpreadSheet&& rhv) : rowcnt {rhv.rowcnt}, colcnt {rhv.c
     rhv.colcnt = 0;
 }
 
-SpreadSheet::SpreadSheet(size_t size) : rowcnt {size}, colcnt {size}
+SpreadSheet::SpreadSheet(size_t size) : 
+    rowcnt {size}, colcnt {size}
 {
     board = new Cell* [rowcnt];
 
@@ -58,7 +62,8 @@ SpreadSheet::SpreadSheet(size_t size) : rowcnt {size}, colcnt {size}
     }
 }
 
-SpreadSheet::SpreadSheet(size_t row, size_t col) : rowcnt {row}, colcnt {col}
+SpreadSheet::SpreadSheet(size_t row, size_t col) : 
+    rowcnt {row}, colcnt {col}
 {
     board = new Cell* [rowcnt];
 
@@ -282,7 +287,7 @@ void SpreadSheet::removeCol(size_t col)
         for (size_t j = col; j < colcnt - 1; ++j) {
             board[i][j] = board[i][j + 1];
         }
-        board[i] = (Cell*)realloc(board[i], (colcnt - 1) * sizeof(Cell));
+        board[i] = (Cell*)realloc_(board[i], (colcnt - 1) * sizeof(Cell));
     }
     --colcnt;
 }

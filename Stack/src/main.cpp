@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../headers/stack.h"
+#include "stack.h"
 
 int main() {
     g3::stack<int> intStack;
